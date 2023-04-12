@@ -22,7 +22,7 @@ package Java01;
  * 9,949,999에 1을 더하면 9,950,000이지만 0은 존재하지 않으므로 9,951,111이 됩니다.
  */
 public class Java0101 {
-    public long solution(long num) {
+    public long solution1(long num) {
         // Write code here.
         long answer = num; // 일단 원래 수 넣어놓기
 
@@ -36,11 +36,24 @@ public class Java0101 {
         return answer;
     }
 
+    public long solution2(long num) {
+        num++; // 하나 올리고 시작
+        long digit = 1;
+
+        while (num / digit % 10 == 0) { // 원래 수를 digit 자릿수로 나눈 몫을 10으로 나눈 나머지가 0일 때만 반복 -> 0이 들어있을 때만 반복
+            num += digit; // 자릿수만큼 더해주기
+            digit *= 10; // 자릿수 하나 올려주기 -> 자릿수를 뒤에서 앞으로 옮겨가며 검증
+        }
+        return num;
+    }
+
     // The following is main method to output testcase.
     public static void main(String[] args) {
         Java0101 sol = new Java0101();
         long num = 9949999;
-        long ret = sol.solution(num);
+
+        long ret = sol.solution1(num); // 내 풀이
+//        long ret = sol.solution2(num); // 예시답안
 
         // Press Run button to receive output.
         System.out.println("Solution: return value of the method is " + ret + " .");
