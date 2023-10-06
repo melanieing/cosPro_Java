@@ -1,4 +1,4 @@
-package forFor;
+package num;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package forFor;
+package num;
 
 /**
  * 94337. 최대합_디버깅
