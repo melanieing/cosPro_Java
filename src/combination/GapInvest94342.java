@@ -21,10 +21,10 @@ public class GapInvest94342 {
         int idx = 0;
 
         for (int[] apartment : apartments) {
-            int salePrice = apartment[0];
-            int ratio = apartment[1];
-            int fixPrice = salePrice * ratio / 100;
-            int investPrice = salePrice - fixPrice;
+            int salePrice = apartment[0];           // 매매가
+            int ratio = apartment[1];               // 전세가율
+            int fixPrice = salePrice * ratio / 100; // 전세가
+            int investPrice = salePrice - fixPrice; // 투자금액
             investPrices[idx++] = investPrice;
         }
 
