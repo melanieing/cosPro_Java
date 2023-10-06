@@ -1,4 +1,4 @@
-package dfs;
+package search;
 
 import java.util.ArrayList;
 import java.util.Arrays;
