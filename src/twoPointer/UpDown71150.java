@@ -1,4 +1,4 @@
-package num;
+package twoPointer;
 
 /**
  * 71150. Up and down_빈칸채우기
