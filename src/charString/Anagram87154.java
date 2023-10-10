@@ -34,13 +34,15 @@ public class Anagram87154 {
                     alpha[c - 'a']--;
                 }
             }
+
             int check = 1;
             for (int j = 0; j < 26; j++) {
-                if (alpha[j] != 0) {
+                if (alpha[j] != 0) { // 일치하지 않는 게 하나라도 있다면 애너그램이 아님
                     check = 0;
+                    break;
                 }
             }
-            if (check == 1) {
+            if (check == 1) { // 모두 일치하므로 애너그램에 해당
                 answer++;
             }
         }
