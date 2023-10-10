@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * 82727. 물감_빈칸채우기
+ * 87153. 물감_빈칸채우기
  * 사용하게 될 물감별로 각각 몇 칸씩 칠하게 되는지 1차원 정수 배열에 담아 오름차순 정렬
  */
 public class Paints87153 {
