@@ -1,11 +1,10 @@
 package charString;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-
+/**
+ * 89486. 생일_함수 작성
+ * 생일이 빠른 순으로 정렬한 배열을 return
+ */
 public class Birthday89486 {
     public static void main(String[] args) {
         Birthday89486 q = new Birthday89486();
@@ -15,25 +14,30 @@ public class Birthday89486 {
     }
 
     private String[] solution(String[] birthday) {
-        ArrayList<LocalDate> list = new ArrayList<>();
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        for (String b : birthday) {
-            String[] tmp = b.split("/");
-            String month = tmp[0].length() != 2 ? "0" + tmp[0] : tmp[0];
-            String day = tmp[1].length() != 2 ? "0" + tmp[1] : tmp[1];
-            StringBuilder sb = new StringBuilder();
-            list.add(LocalDate.parse(sb.append("2023/").append(month).append("/").append(day).toString(), formatter));
+        for (int i = 0; i < birthday.length; i++) {
+            for (int j = i+1; j < birthday.length; j++) {
+                String[] date1 = birthday[i].split("/");
+                String[] date2 = birthday[j].split("/");
+                int month1 = Integer.parseInt(date1[0]);
+                int month2 = Integer.parseInt(date2[0]);
+                int day1 = Integer.parseInt(date1[1]);
+                int day2 = Integer.parseInt(date2[1]);
+
+                if (month1 > month2) {
+                    String tmp = birthday[i];
+                    birthday[i] = birthday[j];
+                    birthday[j] = tmp;
+                } else if (month1 == month2) {
+                    if (day1 > day2) {
+                        String tmp = birthday[i];
+                        birthday[i] = birthday[j];
+                        birthday[j] = tmp;
+                    }
+                }
+            }
         }
 
-        Collections.sort(list);
-
-        String[] answer = new String[birthday.length];
-        int idx = 0;
-        for (LocalDate l : list) {
-            answer[idx++] = l.format(DateTimeFormatter.ofPattern("MM/dd"));
-        }
-
-        return answer;
+        return birthday;
     }
 }
